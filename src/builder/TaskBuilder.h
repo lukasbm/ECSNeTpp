@@ -17,23 +17,26 @@ using namespace omnetpp;
  * Builds a network dynamically, with the topology coming from a
  * text file.
  */
-namespace ecsnetpp {
+namespace ecsnetpp
+{
 
-class TaskBuilder: public cSimpleModule {
-protected:
-    GlobalStreamingSupervisor *globalSupervisor;
-    bool ackersEnabled;
-    bool hasGlobalSupervisor;
-protected:
-    void connect(cGate *src, cGate *dest, double delay, double ber,
-            double datarate);
-    void executeAllocationPlan(cModule *parent);
-    virtual void initialize() override;
-    virtual void handleMessage(cMessage *msg) override;
+    class TaskBuilder : public cSimpleModule
+    {
+    protected:
+        GlobalStreamingSupervisor *globalSupervisor;
+        bool ackersEnabled;
+        bool hasGlobalSupervisor;
 
-private:
-    void setStaskBoolPar(omnetpp::cModule* stask, const char* name, bool value);
-};
+    protected:
+        void connect(cGate *src, cGate *dest, double delay, double ber,
+                     double datarate);
+        void executeAllocationPlan(cModule *parent);
+        virtual void initialize() override;
+        virtual void handleMessage(cMessage *msg) override;
+
+    private:
+        void setStaskBoolPar(omnetpp::cModule *stask, const char *name, bool value);
+    };
 
 }
 #endif /* BUILDER_TASKBUILDER_H_ */

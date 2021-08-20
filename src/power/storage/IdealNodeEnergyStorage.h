@@ -29,11 +29,11 @@ using namespace inet::math;
 using namespace inet::units::values;
 using namespace omnetpp;
 
-namespace ecsnetpp {
-
-
-class IdealNodeEnergyStorage : public cSimpleModule, public cListener
+namespace ecsnetpp
 {
+
+  class IdealNodeEnergyStorage : public cSimpleModule, public cListener
+  {
   protected:
     /**
      * The nominal capacity is in the range [0, +infinity).
@@ -52,7 +52,7 @@ class IdealNodeEnergyStorage : public cSimpleModule, public cListener
     J totalEnergyConsumption = J(0);
     W totalPowerConsumption = W(0);
     W totalIdlePowerConsumption = W(0);
-//    J _energyConsumption = J(0);
+    //    J _energyConsumption = J(0);
     cModule *networkNode = nullptr;
     std::map<long, simtime_t> lastCPUEnergyBalanceUpdateMap;
     simtime_t lastCPUEnergyBalanceUpdate = -1;
@@ -68,7 +68,7 @@ class IdealNodeEnergyStorage : public cSimpleModule, public cListener
     static simsignal_t energyConsumptionChangedSignal;
     static simsignal_t idleEnergyConsumptionChangedSignal;
     static simsignal_t powerConsumptionChangedSignal;
-//    static simsignal_t idlePowerConsumptionChangedSignal;
+    //    static simsignal_t idlePowerConsumptionChangedSignal;
     static simsignal_t cpuEnergyConsumptionChangedSignal;
     static simsignal_t networkEnergyConsumptionChangedSignal;
     static simsignal_t residualCapacityChangedSignal;
@@ -77,9 +77,9 @@ class IdealNodeEnergyStorage : public cSimpleModule, public cListener
   protected:
     virtual void initialize(int stage) override;
 
-//    virtual void updateTotalPowerConsumption();
-//    virtual void updateTotalPowerGeneration();
-//    virtual void updateEnergyBalance();
+    //    virtual void updateTotalPowerConsumption();
+    //    virtual void updateTotalPowerGeneration();
+    //    virtual void updateEnergyBalance();
     virtual void updateCPUEnergyBalance(W totalPowerConsumption, long index);
     virtual void updateWirelessEnergyBalance(W totalPowerConsumption, simtime_t currentTime);
     virtual J getTotalEnergy();
@@ -88,10 +88,8 @@ class IdealNodeEnergyStorage : public cSimpleModule, public cListener
     virtual double getNominalEnergyCapacity() const { return double(INFINITY); }
     virtual double getResidualEnergyCapacity() const { return double(INFINITY); }
     virtual void receiveSignal(cComponent *source, simsignal_t signal, double value, cObject *details) override;
-
-};
+  };
 
 }
 
 #endif // ifndef __INET_IDEALEPENERGYSTORAGE_H
-

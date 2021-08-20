@@ -8,14 +8,14 @@
 #ifndef POWER_STATES_H_
 #define POWER_STATES_H_
 
-class States {
+class States
+{
 public:
-    enum CPUState{
+    enum CPUState
+    {
         CPU_IDLE,
         CPU_BUSY
     };
 };
-
-
 
 #endif /* POWER_STATES_H_ */
