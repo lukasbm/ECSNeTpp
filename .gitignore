@@ -21,3 +21,4 @@ src/msg/Ack_m.cc
 src/msg/Ack_m.h
 src/msg/StreamingMessage_m.cc
 src/msg/StreamingMessage_m.h
+simulations/.qtenvrc
